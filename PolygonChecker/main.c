@@ -20,8 +20,17 @@ int main() {
 			int triangleSides[3] = { 0, 0, 0 };
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
 			//printf_s("! %d\n", triangleSidesPtr[0]);
-			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
-			printf_s("%s\n", result);
+			bool is_valid = checkForTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+			if (is_valid == true)
+			{
+				printf("Forms a triangle\n");
+				char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+				printf_s("%s\n", result);
+			}
+			else
+			{
+				printf("Does not form a triangle\n");
+			}
 			break;
 		case 0:
 			continueProgram = false;
