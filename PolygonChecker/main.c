@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<stdlib.h>
 #include <stdbool.h>
 
 #include "main.h"
@@ -40,7 +41,7 @@ int main() {
 			break;
 		}
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void printWelcome() {
@@ -67,7 +68,12 @@ int* getTriangleSides(int* triangleSides) {
 	printf_s("Enter the three sides of the triangle: ");
 	for (int i = 0; i < 3; i++)
 	{
-		scanf_s("%d", &triangleSides[i]);
+		int numparsed = scanf_s("%d", &triangleSides[i]);
+		if (numparsed != 1 || triangleSides[i] <= 0)
+		{
+			printf("Not a valid input\n");
+			exit(EXIT_FAILURE);
+		}
 	}
 	return triangleSides;
 }
