@@ -21,6 +21,11 @@ int main() {
 			int triangleSides[3] = { 0, 0, 0 };
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
 			//printf_s("! %d\n", triangleSidesPtr[0]);
+
+			//Angles of triangle
+			int triangleAngles[3] = { 0, 0, 0 };
+			int r = find_angles_of_triangle(triangleSides, triangleAngles);
+
 			bool is_valid = checkForTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			if (is_valid == true)
 			{
