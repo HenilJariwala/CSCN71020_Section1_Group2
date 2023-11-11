@@ -52,3 +52,15 @@ bool checkForRectangle(int length, int width) {
     }
     return false;
 }
+
+//function to find perimeter of rectangle
+int Rectangle_Perimeter(int length, int width) {
+    int Perimeter = 2 * (length + width);
+    return Perimeter;
+}
+
+//function to find perimeter of rectangle
+int Rectangle_Area(int length, int width) {
+    int Area = length * width;
+    return Area;
+}
