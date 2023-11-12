@@ -38,6 +38,33 @@ int main() {
 				printf("Does not form a triangle\n");
 			}
 			break;
+		case 2:
+			printf_s("Rectangle selected.\n");
+			int x[4];
+			int y[4];
+			for (int i = 0;i < 4;i++)
+			{
+				printf("Enter x coordinate of %d corner:", (i + 1));
+				int numparsed1 = scanf_s("%d", &x[i]);
+				printf("Enter y coordinate of %d corner:", (i + 1));
+				int numparsed2 = scanf_s("%d", &y[i]);
+				if (numparsed1 != 1 || numparsed2 != 1)
+				{
+					printf("Incorrect input\n");
+					return EXIT_FAILURE;
+				}
+			}
+			bool flag = SortingCorners(&x, &y);
+			if (flag == true)
+			{
+				printf("Forms a rectangle\n");
+				printf("The corners of rectangle in order are:");
+				for (int i = 0; i < 4;i++)
+				{
+					printf("%d is ( %d , %d)\n", (i + 1), x[i], y[i]);
+				}
+			}
+			break;
 		case 0:
 			continueProgram = false;
 			break;
@@ -59,6 +86,7 @@ void printWelcome() {
 
 int printShapeMenu() {
 	printf_s("1. Triangle\n");
+	printf_s("2. Rectangle\n");
 	printf_s("0. Exit\n");
 
 	int shapeChoice;

@@ -52,3 +52,118 @@ bool checkForRectangle(int length, int width) {
     }
     return false;
 }
+
+float calculateDistance(int x1, int y1, int x2, int y2)
+{
+    return sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2));
+}
+
+bool FormsRectangle(int x[], int y[])
+{
+    float d[6];
+    int index = 0;
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = i + 1; j < 4; j++)
+        {
+            d[index++] = calculateDistance(x[i], y[i], x[j], y[j]);
+        }
+    }
+
+    //Sort distances in ascending order
+    for (int i = 0; i < 5; ++i) {
+        for (int j = i + 1; j < 6; ++j) {
+            if (d[i] > d[j]) {
+                float temp = d[i];
+                d[i] = d[j];
+                d[j] = temp;
+            }
+        }
+    }
+
+    if (d[0] == d[1] && d[2] == d[3])
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool SortingCorners(int* x, int* y)
+{
+    bool is_rectangle = FormsRectangle(x, y);
+    if (is_rectangle == false)
+    {
+        printf("Does not form a rectangle");
+        return false;
+    }
+
+    int top_left = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        if (x[top_left] > x[i])
+        {
+            top_left = i;
+        }
+        if (x[top_left] == x[i])
+        {
+            if (y[top_left] < y[i])
+            {
+                top_left = i;
+            }
+        }
+    }
+
+    int top_right = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        if (y[top_right] < y[i] && i != top_left)
+        {
+            top_right = i;
+        }
+    }
+
+    int bottom_right = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        if (x[bottom_right] < x[i] && i != top_left && i != top_right)
+        {
+            bottom_right = i;
+        }
+    }
+
+    int bottom_left = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        if (i != bottom_right && i != top_left && i != top_right)
+        {
+            bottom_left = i;
+        }
+    }
+
+    int x_new[] = { x[top_left], x[top_right], x[bottom_right], x[bottom_left] };
+    int y_new[] = { y[top_left], y[top_right], y[bottom_right], y[bottom_left] };
+
+    for (int i = 0; i < 4; i++)
+    {
+        x[i] = x_new[i];
+        y[i] = y_new[i];
+    }
+
+    return true;
+}
+
+//function to find perimeter of rectangle
+int Rectangle_Perimeter(int length, int width) {
+    int Perimeter = 2 * (length + width);
+    return Perimeter;
+}
+
+//function to find perimeter of rectangle
+int Rectangle_Area(int length, int width) {
+    int Area = length * width;
+    return Area;
+}
