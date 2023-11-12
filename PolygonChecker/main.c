@@ -44,9 +44,9 @@ int main() {
 			int y[4];
 			for (int i = 0;i < 4;i++)
 			{
-				printf("Enter x coordinate of %d corner:", (i + 1));
+				printf("Enter the x coordinate of a corner:");
 				int numparsed1 = scanf_s("%d", &x[i]);
-				printf("Enter y coordinate of %d corner:", (i + 1));
+				printf("Enter y coordinate of that corner:");
 				int numparsed2 = scanf_s("%d", &y[i]);
 				if (numparsed1 != 1 || numparsed2 != 1)
 				{
@@ -63,6 +63,7 @@ int main() {
 				{
 					printf("%d is ( %d , %d)\n", (i + 1), x[i], y[i]);
 				}
+				SortingCorners();
 			}
 			break;
 		case 0:
