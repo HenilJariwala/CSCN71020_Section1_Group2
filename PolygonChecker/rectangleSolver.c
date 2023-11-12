@@ -1,10 +1,6 @@
 #include "rectangleSolver.h"
 
-char* analyzeRectangle() {
-    int x[] = { 1, 5, 5, 1 };
-    int y[] = { 0, 0, 4, 4 };
-
-    double distances[4];
+char* analyzeRectangle(int x[], int y[], int distances[4]) {
     double dot_products[4];
 
     // Calculate distances between consecutive points
@@ -38,12 +34,17 @@ char* analyzeRectangle() {
 
     if (isRectangle) {
         printf("The given coordinates form a rectangle.\n");
+        SortingCorners(x, y, distances);
+        printf("Sorted corners: (%d, %d), (%d, %d), (%d, %d), (%d, %d)\n", x[0], y[0], x[1], y[1], x[2], y[2], x[3], y[3]);
+        Rectangle_Perimeter(distances[0], distances[1]);
+        Rectangle_Area(distances[0], distances[1]);
     }
     else {
         printf("The given coordinates do not form a rectangle.\n");
+        Rectangle_Perimeter(distances[0], distances[1]);
     }
 
-    return NULL; // If you want to return a string, replace NULL with the appropriate message.
+    return NULL;    //can be changed if needed
 }
 
 bool checkForRectangle(int length, int width) {
@@ -53,6 +54,7 @@ bool checkForRectangle(int length, int width) {
     return false;
 }
 
+//
 float calculateDistance(int x1, int y1, int x2, int y2)
 {
     return sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2));
@@ -92,12 +94,13 @@ bool FormsRectangle(int x[], int y[])
     }
 }
 
-bool SortingCorners(int* x, int* y)
+bool SortingCorners(int* x, int* y, int distances[])
 {
     bool is_rectangle = FormsRectangle(x, y);
     if (is_rectangle == false)
     {
-        printf("Does not form a rectangle");
+        printf("Does not forms a rectangle!\n");
+        Rectangle_Perimeter(distances[0], distances[1]);
         return false;
     }
 
@@ -155,6 +158,8 @@ bool SortingCorners(int* x, int* y)
 
     return true;
 }
+//
+
 
 //function to find perimeter of rectangle
 int Rectangle_Perimeter(int length, int width) {
