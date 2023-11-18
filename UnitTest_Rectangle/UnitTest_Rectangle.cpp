@@ -154,7 +154,7 @@ namespace UnitTestRectangle
 			}
 		}
 
-				TEST_METHOD(Test_Sort04)
+		TEST_METHOD(Test_Sort04)
 		{
 			int x[] = { -750,-400,-400,-750 };
 			int y[] = { -600,-600,-200,-200 };
@@ -204,9 +204,6 @@ namespace UnitTestRectangle
 				Assert::AreEqual(y[i], expectedy[i]);
 			}
 		}
-		
-
-
 
 	};
 }
