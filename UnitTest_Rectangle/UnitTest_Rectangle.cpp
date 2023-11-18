@@ -3,7 +3,7 @@
 #include <math.h>
 
 
-extern "C" float calculateDistance(int x1, int y1, int x2, int y2);
+extern "C" float calculateDistance(float x1, float y1, float x2, float y2);
 extern "C" void SortingCorners(int* x, int* y);
 extern "C" bool formsRectangle(int x[], int y[]);
 extern "C" float rectanglePerimeter(float length, float width);
