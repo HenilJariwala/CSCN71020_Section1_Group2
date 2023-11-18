@@ -154,16 +154,16 @@ namespace UnitTestRectangle
 			}
 		}
 
-		TEST_METHOD(Test_Sort04)
+				TEST_METHOD(Test_Sort04)
 		{
-			int x[] = { -1.5,2.8,-1.5,2.8 };
-			int y[] = { 4.7,-2.3,-2.3,4.7 };
+			int x[] = { -750,-400,-400,-750 };
+			int y[] = { -600,-600,-200,-200 };
 
 			SortingCorners(x, y);
 
 		
-			double notexpectedx[] = { -1.5,2.8,2.8,-1.5 };
-			double notexpectedy[] = { 4.7,4.7,-2.3,-2.3 };
+			double notexpectedx[] = { -750,-400,-400,-750 };
+			double notexpectedy[] = { -200,-200,-600,-600 };
 
 			for (int i = 0;i < 4;i++) {
 				Assert::AreEqual((double)x[i], notexpectedx[i]);
@@ -179,16 +179,16 @@ namespace UnitTestRectangle
 			SortingCorners(x, y);
 
 
-			int notexpectedx[] = { 23,88,88,23 };
-			int notexpectedy[] = { 54,54,8,8 };
+			int expectedx[] = { 23,88,88,23 };
+			int expectedy[] = { 54,54,8,8 };
 
 			for (int i = 0;i < 4;i++) {
-				Assert::AreEqual(x[i], notexpectedx[i]);
-				Assert::AreEqual(y[i], notexpectedy[i]);
+				Assert::AreEqual(x[i], expectedx[i]);
+				Assert::AreEqual(y[i], expectedy[i]);
 			}
 		}
 
-			TEST_METHOD(Test_Sort05)
+			TEST_METHOD(Test_Sort06)
 		{
 			int x[] = { -100,500,500,-100 };
 			int y[] = { -300,200,-300,200 };
@@ -196,12 +196,12 @@ namespace UnitTestRectangle
 			SortingCorners(x, y);
 
 
-			int notexpectedx[] = { -100,500,500,-100 };
-			int notexpectedy[] = { 200,200,-300,-300 };
+			int expectedx[] = { -100,500,500,-100 };
+			int expectedy[] = { 200,200,-300,-300 };
 
 			for (int i = 0;i < 4;i++) {
-				Assert::AreEqual(x[i], notexpectedx[i]);
-				Assert::AreEqual(y[i], notexpectedy[i]);
+				Assert::AreEqual(x[i], expectedx[i]);
+				Assert::AreEqual(y[i], expectedy[i]);
 			}
 		}
 		
