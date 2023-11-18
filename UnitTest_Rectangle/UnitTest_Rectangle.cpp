@@ -5,6 +5,7 @@
 
 extern "C" float calculateDistance(int x1, int y1, int x2, int y2);
 extern "C" void SortingCorners(int* x, int* y);
+extern "C" bool formsRectangle(int x[], int y[]);
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -13,6 +14,8 @@ namespace UnitTestRectangle
 	TEST_CLASS(UnitTestRectangle)
 	{
 	public:
+
+		//Testing Distances
 		
 		TEST_METHOD(calculateDistance01)
 		{
@@ -188,7 +191,7 @@ namespace UnitTestRectangle
 			}
 		}
 
-			TEST_METHOD(Test_Sort06)
+		TEST_METHOD(Test_Sort06)
 		{
 			int x[] = { -100,500,500,-100 };
 			int y[] = { -300,200,-300,200 };
@@ -204,6 +207,68 @@ namespace UnitTestRectangle
 				Assert::AreEqual(y[i], expectedy[i]);
 			}
 		}
+
+		TEST_METHOD(Test_FormsRectangle01)
+		{
+			int x[] = { 0, 0, 3, 3 };
+			int y[] = { 0, 4, 4, 0 };
+
+			bool result = formsRectangle(x, y);
+
+			Assert::IsTrue(result);
+		}
+
+
+		TEST_METHOD(Test_FormsRectangle02)
+		{
+			int x[] = { 0, 0, 1, 1 };
+			int y[] = { 0, 4, 5, 0 };
+
+			bool result = formsRectangle(x, y);
+
+			Assert::IsFalse(result); // Expecting an invalid rectangle
+		}
+
+		TEST_METHOD(Test_FormsRectangle03)
+		{
+			int x[] = { 0, 0, 3, 2 };
+			int y[] = { 0, 4, 4, 0 };
+
+			bool result = formsRectangle(x, y);
+
+			Assert::IsFalse(result); // Expecting an invalid rectangle (parallelogram)
+		}
+
+		TEST_METHOD(Test_FormsRectangle04)
+		{
+			int x[] = { 0, 0, 4, 4 };
+			int y[] = { 0, 8, 4, 0 };
+
+			bool result = formsRectangle(x, y);
+
+			Assert::IsFalse(result); // Expecting an invalid rectangle
+		}
+
+		TEST_METHOD(Test_FormsRectangle05)
+		{
+			int x[] = { 0, 0, 3, 3 };
+			int y[] = { 0, 4, 4, 0 };
+
+			bool result = formsRectangle(x, y);
+
+			Assert::IsTrue(result); // Expecting a valid rectangle
+		}
+
+		TEST_METHOD(Test_FormsRectangle06)
+		{
+			int x[] = { -5, -5, 5, 5 };
+			int y[] = { -3, 3, 3, -3 };
+
+			bool result = formsRectangle(x, y);
+
+			Assert::IsTrue(result); // Expecting a valid rectangle with negative coordinates
+		}
+
 
 	};
 }
