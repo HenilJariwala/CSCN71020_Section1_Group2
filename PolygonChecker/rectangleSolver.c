@@ -79,10 +79,6 @@ void SortingCorners(int* x, int* y) {
     }
 }
 
-bool checkForRectangle(int length, int width) {
-    return (length > 0 && width > 0);
-}
-
 float rectanglePerimeter(float length, float width) {
     printf("\n length %f, \nWidth %f\n",length, width );
     float perimeter = 2 * (length + width);
