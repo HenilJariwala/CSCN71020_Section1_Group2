@@ -60,11 +60,16 @@ int main() {
 			{
 				SortingCorners(&x,&y);
 				printf("Forms a rectangle\n");
-				printf("The corners of rectangle in order are:");
+				printf("The corners of rectangle in order are:\n");
 				for (int i = 0; i < 4;i++)
 				{
 					printf("%d is ( %d , %d)\n", (i + 1), x[i], y[i]);
 				}
+				float length = calculateDistance(x[0],y[0],x[1],y[1]);
+				float width = calculateDistance(x[1], y[1],x[2], y[2]);
+				float perimeter = rectanglePerimeter(length, width);
+				float area = rectangleArea(length, width);
+				printf("\nPerimeter is %f\nArea is %f\n",perimeter, area);
 			}
 			else
 			{

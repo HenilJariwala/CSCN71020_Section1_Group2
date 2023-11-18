@@ -12,7 +12,7 @@ namespace UnitTestRectangle
 	{
 	public:
 		
-		TEST_METHOD(Test_Perimeter)
+		TEST_METHOD(calculateDistance01)
 		{
 			int input_x1 = 0;
 			int input_y1 = 0;
