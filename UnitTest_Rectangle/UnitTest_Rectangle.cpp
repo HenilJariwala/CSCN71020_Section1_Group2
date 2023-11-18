@@ -6,6 +6,8 @@
 extern "C" float calculateDistance(int x1, int y1, int x2, int y2);
 extern "C" void SortingCorners(int* x, int* y);
 extern "C" bool formsRectangle(int x[], int y[]);
+extern "C" float rectanglePerimeter(float length, float width);
+extern "C" float rectangleArea(float length, float width);
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -252,8 +254,8 @@ namespace UnitTestRectangle
 
 		TEST_METHOD(Test_FormsRectangle05)
 		{
-			int x[] = { 0, 0, 3, 3 };
-			int y[] = { 0, 4, 4, 0 };
+			int x[] = { -3,-3,2,2 };
+			int y[] = { -2,-7,-7,-2 };
 
 			bool result = formsRectangle(x, y);
 
@@ -270,6 +272,104 @@ namespace UnitTestRectangle
 			Assert::IsTrue(result); // Expecting a valid rectangle with negative coordinates
 		}
 
+		//Checking Area and Perimeter
+		TEST_METHOD(Test_Area_Perimeter_01)
+		{
+			int x[] = { 0,0,6,6 };
+			int y[] = { 0,4,4,0 };
+
+			float length = calculateDistance(x[0], y[0], x[1], y[1]);
+			float width = calculateDistance(x[1], y[1], x[2], y[2]);
+
+			float perimeter = rectanglePerimeter(length, width);
+			double multiplier1 = pow(10.0, 2);  //As we want to round off to 2 decimal places			
+			float actual_perimeter = round(perimeter * multiplier1) / multiplier1;
+
+			float area = rectangleArea(length, width);
+			double multiplier2 = pow(10.0, 2);  //As we want to round off to 2 decimal places			
+			float actual_area = round(area * multiplier2) / multiplier2;
+
+			float expectedPerimeter = 20;
+			float expectedArea = 24;
+
+			Assert::AreEqual(perimeter, expectedPerimeter);
+			Assert::AreEqual(area, expectedArea);
+
+		}
+
+		TEST_METHOD(Test_Area_Perimeter_02)
+		{
+			int x[] = { 0, 0, 6, 6 };
+			int y[] = { 0, 4, 4, 0 };
+
+			float length = calculateDistance(x[0], y[0], x[1], y[1]);
+			float width = calculateDistance(x[1], y[1], x[2], y[2]);
+
+			float perimeter = rectanglePerimeter(length, width);
+			double multiplier1 = pow(10.0, 2);  //As we want to round off to 2 decimal places			
+			float actual_perimeter = round(perimeter * multiplier1) / multiplier1;
+			
+			float area = rectangleArea(length, width);
+			double multiplier2 = pow(10.0, 2);  //As we want to round off to 2 decimal places			
+			float actual_area = round(area* multiplier2) / multiplier2;
+
+			float expectedPerimeter = 20;
+			float expectedArea = 24;
+
+			Assert::AreEqual(perimeter, expectedPerimeter);
+			Assert::AreEqual(area, expectedArea);
+		}
+
+
+		TEST_METHOD(Test_Area_Perimeter_03)
+		{
+		
+			int x[] = { -3,-3,2,2 };
+			int y[] = { -2,-7,-7,-2 };
+
+			float length = calculateDistance(x[0], y[0], x[1], y[1]);
+			float width = calculateDistance(x[1], y[1], x[2], y[2]);
+
+			float perimeter = rectanglePerimeter(length, width);
+			double multiplier1 = pow(10.0, 2);  //As we want to round off to 2 decimal places			
+			float actual_perimeter = round(perimeter * multiplier1) / multiplier1;
+
+			float area = rectangleArea(length, width);
+			double multiplier2 = pow(10.0, 2);  //As we want to round off to 2 decimal places			
+			float actual_area = round(area * multiplier2) / multiplier2;
+
+			float expectedPerimeter = 20;
+			float expectedArea = 25;
+
+			Assert::AreEqual(perimeter, expectedPerimeter);
+			Assert::AreEqual(area, expectedArea);
+		}
+
+		TEST_METHOD(Test_Area_Perimeter_04)
+		{
+
+			int x[] = { -3,-3,2,2 };
+			int y[] = { -2,-7,-7,-2 };
+
+			float length = calculateDistance(x[0], y[0], x[1], y[1]);
+			float width = calculateDistance(x[1], y[1], x[2], y[2]);
+
+			float perimeter = rectanglePerimeter(length, width);
+			double multiplier1 = pow(10.0, 2);  //As we want to round off to 2 decimal places			
+			float actual_perimeter = round(perimeter * multiplier1) / multiplier1;
+
+			float area = rectangleArea(length, width);
+			double multiplier2 = pow(10.0, 2);  //As we want to round off to 2 decimal places			
+			float actual_area = round(area * multiplier2) / multiplier2;
+
+			float expectedPerimeter = 20;
+			float expectedArea = 25;
+
+			Assert::AreEqual(perimeter, expectedPerimeter);
+			Assert::AreEqual(area, expectedArea);
+		}
+
+			
 
 	};
 }

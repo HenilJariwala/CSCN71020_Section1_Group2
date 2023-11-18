@@ -4,8 +4,8 @@
 #include <stdbool.h>
 #include <math.h>
 
-float calculateDistance(int x1, int y1, int x2, int y2) {
-    return sqrtf((float)powf((x1 - x2), 2) + (float)powf((y1 - y2), 2));
+float calculateDistance(float x1, float y1, float x2, float y2) {
+    return sqrtf(powf((x1 - x2), 2) + (powf((y1 - y2), 2));
 }
 
 bool formsRectangle(int x[], int y[]) {
@@ -14,7 +14,7 @@ bool formsRectangle(int x[], int y[]) {
     bool is_valid;
     for (int i = 0; i < 3; i++) {
         for (int j = i + 1; j < 4; j++) {
-            d[index++] = calculateDistance(x[i], y[i], x[j], y[j]);
+            d[index++] = calculateDistance((float)x[i], (float)y[i], (float)x[j], (float)y[j]);
         }
     }
 
@@ -38,6 +38,7 @@ bool formsRectangle(int x[], int y[]) {
     }
     return is_valid;
 }
+
 
 void SortingCorners(int* x, int* y) {
     int top_left = 0;
