@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PolygonChecker", "PolygonCh
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest_Rectangle", "UnitTest_Rectangle\UnitTest_Rectangle.vcxproj", "{36B0AFDD-8A1F-4802-91CF-CC07B7BB4368}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "triangle_UnitTest", "triangle_UnitTest\triangle_UnitTest.vcxproj", "{856C7D15-31DE-4491-BB48-CAEDCCB507BA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -33,14 +31,6 @@ Global
 		{36B0AFDD-8A1F-4802-91CF-CC07B7BB4368}.Release|x64.Build.0 = Release|x64
 		{36B0AFDD-8A1F-4802-91CF-CC07B7BB4368}.Release|x86.ActiveCfg = Release|Win32
 		{36B0AFDD-8A1F-4802-91CF-CC07B7BB4368}.Release|x86.Build.0 = Release|Win32
-		{856C7D15-31DE-4491-BB48-CAEDCCB507BA}.Debug|x64.ActiveCfg = Debug|x64
-		{856C7D15-31DE-4491-BB48-CAEDCCB507BA}.Debug|x64.Build.0 = Debug|x64
-		{856C7D15-31DE-4491-BB48-CAEDCCB507BA}.Debug|x86.ActiveCfg = Debug|Win32
-		{856C7D15-31DE-4491-BB48-CAEDCCB507BA}.Debug|x86.Build.0 = Debug|Win32
-		{856C7D15-31DE-4491-BB48-CAEDCCB507BA}.Release|x64.ActiveCfg = Release|x64
-		{856C7D15-31DE-4491-BB48-CAEDCCB507BA}.Release|x64.Build.0 = Release|x64
-		{856C7D15-31DE-4491-BB48-CAEDCCB507BA}.Release|x86.ActiveCfg = Release|Win32
-		{856C7D15-31DE-4491-BB48-CAEDCCB507BA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

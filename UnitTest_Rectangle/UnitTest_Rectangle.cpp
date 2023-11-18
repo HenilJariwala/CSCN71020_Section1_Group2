@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 
 extern "C" float calculateDistance(int x1, int y1, int x2, int y2);
+extern "C" void sortCorners(int* x, int* y);
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -71,5 +72,28 @@ namespace UnitTestRectangle
 			float expected = 5.39;
 			Assert::AreEqual(expected, actual_distance);
 		}
+
+
+		//Testing consecutive corner
+		TEST_METHOD(Test_Sort01) 
+		{
+			int x[] = { -2,3,3,-2 };
+			int y[] = { -1,-1,4,4 };
+
+			sortCorners(x, y);
+
+			int expectedx[] = {-2,3,3,-2};
+			int expectedy[] = {4,4,-1,-1,};
+
+			Assert::AreEqual(x, expectedx);
+			Assert::AreEqual(y, expectedy);
+
+		}
+
+
+
+
+
+
 	};
 }
