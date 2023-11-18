@@ -4,6 +4,7 @@
 
 #include "main.h"
 #include "triangleSolver.h"
+#include"rectangleSolver.h"
 
 int side = 0;
 
@@ -54,16 +55,20 @@ int main() {
 					return EXIT_FAILURE;
 				}
 			}
-			bool flag = SortingCorners(&x, &y);
+			bool flag = formsRectangle(&x, &y);
 			if (flag == true)
 			{
+				SortingCorners(&x,&y);
 				printf("Forms a rectangle\n");
 				printf("The corners of rectangle in order are:");
 				for (int i = 0; i < 4;i++)
 				{
 					printf("%d is ( %d , %d)\n", (i + 1), x[i], y[i]);
 				}
-				SortingCorners();
+			}
+			else
+			{
+				printf("Does not form a rectangle\n");
 			}
 			break;
 		case 0:

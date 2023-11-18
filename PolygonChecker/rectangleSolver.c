@@ -11,7 +11,7 @@ float calculateDistance(int x1, int y1, int x2, int y2) {
 bool formsRectangle(int x[], int y[]) {
     float d[6];
     int index = 0;
-
+    bool is_valid;
     for (int i = 0; i < 3; i++) {
         for (int j = i + 1; j < 4; j++) {
             d[index++] = calculateDistance(x[i], y[i], x[j], y[j]);
@@ -28,11 +28,18 @@ bool formsRectangle(int x[], int y[]) {
             }
         }
     }
-
-    return (d[0] == d[1] && d[2] == d[3]);
+    if (d[0] == d[1] && d[2] == d[3])
+    {
+        is_valid = true;
+    }
+    else
+    {
+        is_valid = false;
+    }
+    return is_valid;
 }
 
-void sortCorners(int* x, int* y) {
+void SortingCorners(int* x, int* y) {
     int top_left = 0;
     for (int i = 0; i < 4; i++) {
         if (x[top_left] > x[i] || (x[top_left] == x[i] && y[top_left] < y[i])) {
@@ -100,7 +107,7 @@ char* analyzeRectangle(int x[], int y[], int distances[4]) {
 
     if (isRectangle) {
         printf("The given coordinates form a rectangle.\n");
-        sortCorners(x, y);
+        SortingCorners(x, y);
         printf("Sorted corners: (%d, %d), (%d, %d), (%d, %d), (%d, %d)\n", x[0], y[0], x[1], y[1], x[2], y[2], x[3], y[3]);
         rectanglePerimeter(distances[0], distances[1]);
         rectangleArea(distances[0], distances[1]);
@@ -127,9 +134,3 @@ int rectangleArea(int length, int width) {
     return area;
 }
 
-// Implement SortingCorners
-bool SortingCorners(int* x, int* y) {
-    // Implementation of SortingCorners
-    // ...
-    return true;  // Update with your actual implementation
-}

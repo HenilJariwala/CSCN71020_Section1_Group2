@@ -6,7 +6,6 @@
 
 float calculateDistance(int x1, int y1, int x2, int y2);
 bool formsRectangle(int x[], int y[]);
-void sortCorners(int* x, int* y);
 char* analyzeRectangle(int x[], int y[], int distances[4]);
 bool checkForRectangle(int length, int width);
 int rectanglePerimeter(int length, int width);
