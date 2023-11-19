@@ -368,8 +368,5 @@ namespace UnitTestRectangle
 			Assert::AreEqual(perimeter, expectedPerimeter);
 			Assert::AreEqual(area, expectedArea);
 		}
-
-			
-
 	};
 }
