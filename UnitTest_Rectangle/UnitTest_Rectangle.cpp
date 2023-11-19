@@ -111,6 +111,23 @@ namespace UnitTestRectangle
 		}
 
 
+		TEST_METHOD(calculateDistance07)
+		{
+			int input_x1 = 0;
+			int input_y1 = 0;
+			int input_x2 = 0;
+			int input_y2 = 0;
+
+			//Invoking and getting distance and rounding it off
+			float distance = calculateDistance(input_x1, input_y1, input_x2, input_y2);
+			double multiplier = pow(10.0, 2);  //As we want to round off to 2 decimal places
+			float actual_distance = round(distance * multiplier) / multiplier;
+
+			float expected = 0;
+			Assert::AreEqual(expected, actual_distance);
+		}
+
+
 		//Testing consecutive corner
 		TEST_METHOD(Test_Sort01) 
 		{
@@ -206,6 +223,23 @@ namespace UnitTestRectangle
 			int expectedy[] = { 200,200,-300,-300 };
 
 			for (int i = 0;i < 4;i++) {
+				Assert::AreEqual(x[i], expectedx[i]);
+				Assert::AreEqual(y[i], expectedy[i]);
+			}
+		}
+
+		TEST_METHOD(Test_Sort07)
+		{
+			int x[] = {0,0,0,0};
+			int y[] = { 0,0,0,0 };
+
+			SortingCorners(x, y);
+
+
+			int expectedx[] = { 0,0,0,0 };
+			int expectedy[] = { 0,0,0,0 };
+
+			for (int i = 0; i < 4; i++) {
 				Assert::AreEqual(x[i], expectedx[i]);
 				Assert::AreEqual(y[i], expectedy[i]);
 			}
