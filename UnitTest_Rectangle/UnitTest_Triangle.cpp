@@ -39,7 +39,7 @@ namespace UnitTestRectangle
 
 			bool actual = checkForTriangle(s1, s2, s3);
 
-			Assert::IsTrue(actual);
+			Assert::IsFalse(actual);
 		}
 
 

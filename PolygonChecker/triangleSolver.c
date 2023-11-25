@@ -27,11 +27,15 @@ char* analyzeTriangle(int side1, int side2, int side3) {
 }
 bool checkForTriangle(int side1, int side2, int side3)
 {
-	if (((side1 + side2) > side3) && ((side1 + side3) > side2) && ((side2 + side3) > side1) && ((side1 && side2 && side3)>0))
-	{
-		return true;
+	if (side1 >0 && side2>0 && side3>0) {
+		if (((side1 + side2) > side3) && ((side1 + side3) > side2) && ((side2 + side3) > side1) )
+		{
+			return true;
+		}
 	}
-	return false;
+	else {
+		return false;
+	}
 }
 
 int find_angles_of_triangle(int* triangleSides, float* trianglesAngle) {
