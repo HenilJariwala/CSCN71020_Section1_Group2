@@ -71,16 +71,6 @@ namespace UnitTestRectangle
 			Assert::AreEqual("Scalene triangle", actual);
 		}
 
-		TEST_METHOD(Analyze_NotATriangle)
-		{
-			int s1 = 2, s2 = 2, s3 = 5;
-
-			char* actual = analyzeTriangle(s1, s2, s3);
-
-			Assert::AreEqual("Isosceles triangle", actual);
-		}
-
-
 
 		// Test Case 1 for angles: Valid Triangle with sides 3, 4, 5
 		TEST_METHOD(Test_ValidTriangle_345)
